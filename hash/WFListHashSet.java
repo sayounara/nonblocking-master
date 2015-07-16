@@ -42,7 +42,7 @@ class WFListHashSet implements ISet
         head = new HNode(null, MIN_BUCKET_NUM);
         head.buckets.set(0, new WFListFSet());
         counter = 0;
-        A = new AtomicReferenceArray<WFListNode>(BenchWFArray.THREAD_NUM);
+        A = new AtomicReferenceArray<WFListNode>(Benchmark.THREAD_NUM);
         for (int i = 0; i < A.length(); i++) {
             WFListNode n = new WFListNode(-1, -1);
             n.priority = Long.MAX_VALUE;

@@ -13,14 +13,14 @@ class ResizingThread extends Thread
     {
         this.id = i;
         this.oprng = new Random(i);
-        this.set = BenchWFArray.set;
+        this.set = Benchmark.set;
     }
 
     public void run()
     {
-        while (!BenchWFArray.begin);
+        while (!Benchmark.begin);
 
-        while (!BenchWFArray.stop) {
+        while (!Benchmark.stop) {
             if (oprng.nextInt(2) == 1) {
                 if (set.grow()) {
                     numGrow++;

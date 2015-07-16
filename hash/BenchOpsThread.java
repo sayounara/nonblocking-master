@@ -17,16 +17,16 @@ class BenchOpsThread extends Thread
 
     public void run()
     {
-        int cRatio = BenchWFArray.RO_RATIO;
+        int cRatio = Benchmark.RO_RATIO;
         int iRatio = cRatio + (100 - cRatio) / 2;
-        ISet set = BenchWFArray.set;
+        ISet set = Benchmark.set;
 
-        while (!BenchWFArray.begin);
+        while (!Benchmark.begin);
 
-        while (!BenchWFArray.stop) {
+        while (!Benchmark.stop) {
 //        	System.out.println("minax");
             int op = oprng.nextInt(100);
-            int key = keyrng.nextInt((int)BenchWFArray.KEY_RANGE);
+            int key = keyrng.nextInt((int)Benchmark.KEY_RANGE);
 
             if (op < cRatio) {
                 set.contains(key);

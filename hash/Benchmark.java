@@ -2,13 +2,13 @@ import java.util.Random;
 import java.text.*;
 import gnu.getopt.Getopt;
 
-class BenchWFArray {
+class Benchmark {
 	public static int THREAD_NUM = 1;
 	public static int DURATION = 1000;
 	public static int RO_RATIO;
 	public static long KEY_RANGE = 2048;
 	public static long INIT_SIZE = 1024;
-	public static String ALG_NAME = "WFArray";//测试的hash
+	public static String ALG_NAME = "LFList";//测试的hash
 	public static boolean SANITY_MODE = false;
 
 	public static int LOAD_FACTOR = 1;
@@ -115,7 +115,7 @@ class BenchWFArray {
 
 	private static void RunBench(boolean warmup) throws InterruptedException {
 		RO_RATIO=100-UPDATE;
-		set = new WFArrayHashSet();
+		set = new LFListHashSet();
 		if (!is_power_of_two(INIT_SIZE)) {
 			long initial_pow2 = pow2roundup(INIT_SIZE);
 			System.out.println(

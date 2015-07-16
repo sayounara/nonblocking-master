@@ -42,7 +42,7 @@ class WFArrayHashSet implements ISet
         head = new HNode(null, MIN_BUCKET_NUM);
         head.buckets.set(0, new WFArrayFSet());
         counter = 0;
-        A = new AtomicReferenceArray<WFArrayOp>(BenchWFArray.THREAD_NUM);
+        A = new AtomicReferenceArray<WFArrayOp>(Benchmark.THREAD_NUM);
         for (int i = 0; i < A.length(); i++) {
             WFArrayOp n = new WFArrayOp(-1, -1);
             n.priority = Long.MAX_VALUE;

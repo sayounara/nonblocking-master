@@ -37,7 +37,7 @@ class AdaptiveArrayHashSet implements ISet
 
         private void reset()
         {
-            curTid = (curTid + 1) % BenchWFArray.THREAD_NUM;
+            curTid = (curTid + 1) % Benchmark.THREAD_NUM;
             lastPhase = A.get(curTid).priority;
             nextCheck = HELPING_DELAY;
         }
@@ -66,8 +66,8 @@ class AdaptiveArrayHashSet implements ISet
         head = new HNode(null, MIN_BUCKET_NUM);
         head.buckets.set(0, new WFArrayFSet());
         counter = 0;
-        A = new AtomicReferenceArray<WFArrayOp>(BenchWFArray.THREAD_NUM);
-        helpRecords = new HelpRecord[BenchWFArray.THREAD_NUM];
+        A = new AtomicReferenceArray<WFArrayOp>(Benchmark.THREAD_NUM);
+        helpRecords = new HelpRecord[Benchmark.THREAD_NUM];
 
         for (int i = 0; i < A.length(); i++) {
             WFArrayOp n = new WFArrayOp(-1, -1);

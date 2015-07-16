@@ -8,8 +8,8 @@ class CheckingThread extends Thread
     private boolean resize;
     private ISet set;
 
-    public int [] numInsert = new int[(int)BenchWFArray.KEY_RANGE];
-    public int [] numRemove = new int[(int)BenchWFArray.KEY_RANGE];
+    public int [] numInsert = new int[(int)Benchmark.KEY_RANGE];
+    public int [] numRemove = new int[(int)Benchmark.KEY_RANGE];
 
     public CheckingThread(int i, boolean resize)
     {
@@ -17,16 +17,16 @@ class CheckingThread extends Thread
         this.oprng = new Random(i);
         this.keyrng = new Random(i);
         this.resize = resize;
-        this.set = BenchWFArray.set;
+        this.set = Benchmark.set;
     }
 
     public void run()
     {
-        while (!BenchWFArray.begin);
+        while (!Benchmark.begin);
 
-        while (!BenchWFArray.stop) {
+        while (!Benchmark.stop) {
             int op = oprng.nextInt(2);
-            int key = keyrng.nextInt((int)BenchWFArray.KEY_RANGE);
+            int key = keyrng.nextInt((int)Benchmark.KEY_RANGE);
 
             if (op == 1) {
                 if (insert(key, id))
